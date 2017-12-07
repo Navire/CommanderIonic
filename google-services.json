@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "278653691693",
+    "firebase_url": "https://commander-counter-life.firebaseio.com",
+    "project_id": "commander-counter-life",
+    "storage_bucket": "commander-counter-life.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278653691693:android:bde959f464dd56a4",
+        "android_client_info": {
+          "package_name": "io.ionic.commander"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278653691693-2t5uudrm70vk3o870no0kok9a9ilgj8j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwYsAdqOw8dr5vdjTTKxsG2SQFdtheVkA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

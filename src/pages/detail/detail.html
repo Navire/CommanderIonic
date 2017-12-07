@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Jogador: {{player.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <form (ngSubmit)="logForm()">
+      <div class="row">
+        <div class="col-20">
+          <ion-label color="primary">Nome</ion-label>
+        </div>
+        <ion-input type="text" [(ngModel)]="mod.name" [ngModelOptions]="{standalone: true}" placeholder="{{player.name}}"></ion-input>
+      </div>
+
+      <button type="submit" [disabled]="!mod.name" ion-button full>Trocar Nome</button>
+    </form>
+  </ion-card>
+
+  <ion-card>
+    <div *ngFor="let jogador of players">
+
+      <ion-row *ngIf="!(jogador.id===player.id)">
+        <ion-col col-2>           
+          <button ion-button color="danger" outline (click)="lifeLess(player,jogador.id)">
+            <ion-icon color="danger" name="flash">-</ion-icon>
+          </button>
+        </ion-col>
+        <ion-col col-7 text-center>
+          <ion-label>{{jogador.name}} : {{player.commanderDamage[jogador.id].damage}}</ion-label>    
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button color="secondary" outline (click)="lifeMore(player,jogador.id)">
+            <ion-icon color="secondary" name="heart">+</ion-icon>
+          </button>    
+        </ion-col>
+      </ion-row>      
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <ion-row>
+      <ion-col col-2>
+        <button ion-button color="danger" outline (click)="commanderOut(id)">
+          <ion-icon color="danger" name="flash">-</ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-7 text-center>
+        <ion-label>Zona de Comando: {{player.commanderOut}}</ion-label>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button color="secondary" outline (click)="commanderIn()">
+          <ion-icon color="secondary" name="heart">+</ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  {{player.death}}
+  <ion-item>
+    <ion-label>Morto</ion-label>
+    <ion-toggle checked="false" [(ngModel)]="player.death" [ngModelOptions]="{standalone: true}"></ion-toggle>
+  </ion-item>
+
+</ion-content>

@@ -1,14 +1,56 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+  <ion-content padding>
+    {{teste}}
+  <ion-card *ngFor="let player of players" class="primary-block">
+    <div class="row">
+      <div class="col">
+        <div class="cell-left" (click)="lifeLess(player,1)">
+           <ion-icon color="red" name="flash">-1</ion-icon>
+        </div>
+        <div class="cell-left" (click)="lifeLess(player,5)">
+           <ion-icon color="red" name="flash">-5</ion-icon>
+        </div>
+      </div>
+      <div class="col-20" (click)="playerSelected(player,players)" text-center>
+        <h1> {{player.name}}</h1>
+        <div *ngIf="!player.death">
+          <div class="size-font"> <ion-icon name="pulse"></ion-icon> {{player.life}} </div>
+          <h3> <ion-icon name="return-left"></ion-icon> {{player.commanderOut}}</h3>
+        </div>
+        <div *ngIf="player.death">
+          <img class="image-death" src="assets/img/risk-skull.svg">
+        </div>        
+      </div>
+      <div class="col">
+        <div class="cell-right" (click)="lifeMore(player,1)">
+          <ion-icon color="green" name="heart">+1</ion-icon>
+        </div>
+        <div class="cell-right" (click)="lifeMore(player,5)">
+          <ion-icon color="green" name="heart">+5</ion-icon>
+        </div>
+      </div>
+    </div>
+  </ion-card>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div class="space-bottom"></div>
+
+  <blockquote class="text-align">
+    Todo mundo tem uma história triste.
+  </blockquote>
+  <img class="image-footer" src="assets/img/logo.png">
+
+   <!-- this fab is placed at bottom right -->
+   <ion-fab bottom right >
+     <button ion-fab><ion-icon name="settings"></ion-icon></button>
+     <ion-fab-list side="top">
+       <button ion-fab (click)="numberPlayers(5)">5</button>
+       <button ion-fab (click)="numberPlayers(4)">4</button>
+       <button ion-fab (click)="numberPlayers(3)">3</button>
+       <button ion-fab (click)="numberPlayers(2)">2</button>
+     </ion-fab-list>
+     <ion-fab-list side="left"> 
+       <button ion-fab (click)="numberPlayers(4)"><ion-icon name="refresh"></ion-icon></button>
+       <button ion-fab (click)="save()"><ion-icon name="cloud-upload"></ion-icon></button>
+       <button ion-fab (click)="restaurar()"><ion-icon name="redo"></ion-icon></button>
+     </ion-fab-list>
+   </ion-fab>
 </ion-content>
